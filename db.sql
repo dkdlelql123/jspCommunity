@@ -89,3 +89,4 @@ SELECT * FROM `article`;
 UPDATE `article` 
 SET memberID = 2
 WHERE id = 5;
+ 	
