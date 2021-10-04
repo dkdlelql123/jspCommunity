@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sbs.example.mysqlutil.MySqlUtil;
 import com.sbs.example.mysqlutil.SecSql;
  
-@WebServlet("/usr/home/memberList")
+@WebServlet("/usr/member/list")
 public class MemberList extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,6 +24,10 @@ public class MemberList extends HttpServlet {
 	
 	List<Map<String, Object>> memberMapList = MySqlUtil.selectRows(new SecSql().append("SELECT * FROM MEMBER ORDER BY id DESC"));
 	System.out.println(memberMapList );
+	
+	req.setAttribute("memberMapList", memberMapList );
+	
+	req.getRequestDispatcher("/jsp/usr/member/list.jsp").forward(req, resp);
 	
 	MySqlUtil.closeConnection();
 	
