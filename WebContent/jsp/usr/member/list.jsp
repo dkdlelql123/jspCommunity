@@ -12,6 +12,7 @@ List<Map<String, Object>> memberMapList = (List<Map<String, Object>>)request.get
 <title>회원 리스트</title>
 </head>
 <body>
+<%@ include file="/jsp/usr/common/Header.jsp" %>
 <h1>회원 리스트</h1>
 <%
 for( Map<String, Object> member : memberMapList ){
